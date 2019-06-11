@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">circassian-keyboard</string>
+    <string name="im_label">Circassian</string>
 </resources>
