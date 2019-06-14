@@ -83,7 +83,7 @@
              android:keyEdgeFlags="right"/>
     </Row>
     <Row android:rowEdgeFlags="bottom">
-        <Key android:codes="44" android:keyWidth="15%p"
+        <Key android:codes="-2" android:keyWidth="15%p"
              android:keyIcon="@mipmap/ic_symbols"
              android:keyEdgeFlags="left"/>
         <Key android:codes="44" android:keyLabel="," android:keyWidth="10%p" />

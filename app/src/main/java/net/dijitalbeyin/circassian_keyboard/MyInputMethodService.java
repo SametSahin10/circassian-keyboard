@@ -11,14 +11,16 @@ import android.view.inputmethod.InputConnection;
 
 public class MyInputMethodService extends InputMethodService implements KeyboardView.OnKeyboardActionListener {
     private KeyboardView keyboardView;
-    private Keyboard keyboard;
+    private Keyboard qwertyKeyboard;
+    private Keyboard symbolsKeyboard;
     private boolean isCaps = false;
 
     @Override
     public View onCreateInputView() {
         keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view, null);
-        keyboard = new Keyboard(this, R.xml.keys_layout);
-        keyboardView.setKeyboard(keyboard);
+        qwertyKeyboard = new Keyboard(this, R.xml.keys_layout);
+        symbolsKeyboard = new Keyboard(this, R.xml.symbols);
+        keyboardView.setKeyboard(qwertyKeyboard);
         keyboardView.setOnKeyboardActionListener(this);
         return keyboardView;
     }
@@ -39,6 +41,15 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
         if (inputConnection != null) {
             playSound(primaryCode);
             switch (primaryCode) {
+                case Keyboard.KEYCODE_MODE_CHANGE:
+                    Keyboard currentKeyboard = keyboardView.getKeyboard();
+                    if (currentKeyboard == qwertyKeyboard) {
+                        currentKeyboard = symbolsKeyboard;
+                    } else {
+                        currentKeyboard = qwertyKeyboard;
+                    }
+                    keyboardView.setKeyboard(currentKeyboard);
+                    break;
                 case Keyboard.KEYCODE_DELETE:
                     CharSequence selectedText = inputConnection.getSelectedText(0);
                     if (TextUtils.isEmpty(selectedText)) {
@@ -49,7 +60,7 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                     break;
                 case Keyboard.KEYCODE_SHIFT:
                     isCaps = !isCaps;
-                    keyboard.setShifted(isCaps);
+                    qwertyKeyboard.setShifted(isCaps);
                     keyboardView.invalidateAllKeys();
                     break;
                 case Keyboard.KEYCODE_DONE:
