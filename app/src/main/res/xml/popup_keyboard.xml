@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:keyWidth="10%p"
+    android:keyHeight="55dp"
+    android:keyTextColor="@color/colorAccent"
+    android:keyBackground="@drawable/key_background"
+    android:background="@color/keyboard_background_color">
+</Keyboard>
