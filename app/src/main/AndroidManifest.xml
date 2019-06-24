@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="net.dijitalbeyin.circassian_keyboard">
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +8,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <service android:name=".MyInputMethodService" android:label="MyInputMethodService"
+        <service android:name=".MyInputMethodService" android:label="Adıǵe Latin"
             android:permission="android.permission.BIND_INPUT_METHOD">
             <meta-data android:name="android.view.im" android:resource="@xml/method"/>
             <intent-filter>
@@ -21,6 +20,9 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
             </intent-filter>
         </activity>
     </application>

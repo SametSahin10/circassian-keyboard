@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">circassian-keyboard</string>
-    <string name="im_label">Circassian</string>
+    <string name="app_name">Adıǵe Latin Keyboard</string>
+    <string name="im_label" translatable="false">Circassian</string>
 </resources>

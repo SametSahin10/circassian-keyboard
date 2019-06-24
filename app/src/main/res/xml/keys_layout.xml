@@ -29,18 +29,21 @@
              android:popupKeyboard="@xml/popup_keyboard"
              android:popupCharacters="ṫ"/>
         <Key android:codes="121" android:keyLabel="y"/>
-        <Key android:codes="117" android:keyLabel="u"/>
-        <Key android:codes="105" android:keyLabel="i"/>
-        <Key android:codes="111" android:keyLabel="o"/>
+        <Key android:codes="117" android:keyLabel="u"
+             android:popupKeyboard="@xml/popup_keyboard"/>
+        <Key android:codes="305" android:keyLabel="ı"/>
+        <Key android:codes="111" android:keyLabel="o"
+             android:popupKeyboard="@xml/popup_keyboard"/>
         <Key android:codes="112" android:keyLabel="p"
-             android:keyEdgeFlags="right"
              android:popupKeyboard="@xml/popup_keyboard"
              android:popupCharacters="ṕ"/>
+        <Key android:codes="287" android:keyLabel="ğ"/>
+        <Key android:codes="252" android:keyLabel="ü"
+             android:keyEdgeFlags="right"/>
     </Row>
     <Row>
         <Key android:codes="97" android:keyLabel="a"
              android:keyEdgeFlags="left"
-             android:horizontalGap="5%"
              android:popupKeyboard="@xml/popup_keyboard"
              android:popupCharacters="á"/>
         <Key android:codes="115" android:keyLabel="s"
@@ -58,9 +61,14 @@
         <Key android:codes="107" android:keyLabel="k"
              android:popupKeyboard="@xml/popup_keyboard"
              android:popupCharacters="ḱ"/>
-        <Key android:codes="108" android:keyLabel="l" android:keyEdgeFlags="right"
+        <Key android:codes="108" android:keyLabel="l"
              android:popupKeyboard="@xml/popup_keyboard"
              android:popupCharacters="ĺ"/>
+        <Key android:codes="351" android:keyLabel="ş"/>
+        <Key android:codes="105" android:keyLabel="i"
+             android:popupKeyboard="@xml/popup_keyboard"
+             android:popupCharacters="İ"
+             android:keyEdgeFlags="right"/>
     </Row>
     <Row>
         <Key android:codes="-1" android:keyEdgeFlags="left"
@@ -77,6 +85,8 @@
         <Key android:codes="98" android:keyLabel="b"/>
         <Key android:codes="110" android:keyLabel="n"/>
         <Key android:codes="109" android:keyLabel="m"/>
+        <Key android:codes="246" android:keyLabel="ö"/>
+        <Key android:codes="231" android:keyLabel="ç"/>
         <Key android:codes="-5" android:keyIcon="@mipmap/ic_clear"
              android:keyWidth="15%p"
              android:isRepeatable="true"
@@ -87,10 +97,11 @@
              android:keyIcon="@mipmap/ic_symbols"
              android:keyEdgeFlags="left"/>
         <Key android:codes="44" android:keyLabel="," android:keyWidth="10%p" />
+        <Key android:codes="46" android:keyLabel="."/>
         <Key android:codes="32" android:keyLabel="SPACE"
              android:keyWidth="50%p"
              android:isRepeatable="true"/>
-        <Key android:codes="46" android:keyLabel="."/>
+        <Key android:codes="39" android:keyLabel="'"/>
         <Key android:codes="-4" android:keyBackground="@color/colorPrimary"
              android:keyIcon="@mipmap/ic_success"
              android:keyWidth="15%p"
