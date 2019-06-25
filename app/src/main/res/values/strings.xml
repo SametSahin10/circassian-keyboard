@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Adıǵe Latin Keyboard</string>
     <string name="im_label" translatable="false">Circassian</string>
+    <string name="btn_settings">Go to Settings</string>
 </resources>

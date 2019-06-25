@@ -50,21 +50,27 @@
              android:popupKeyboard="@xml/popup_keyboard"
              android:popupCharacters="šś"/>
         <Key android:codes="100" android:keyLabel="d"/>
-        <Key android:codes="102" android:keyLabel="f"/>
+        <Key android:codes="102" android:keyLabel="f"
+             android:popupKeyboard="@xml/popup_keyboard"
+             android:popupCharacters="ḟ"/>
         <Key android:codes="103" android:keyLabel="g"
              android:popupKeyboard="@xml/popup_keyboard"
              android:popupCharacters="ǵ"/>
         <Key android:codes="104" android:keyLabel="h"
              android:popupKeyboard="@xml/popup_keyboard"
              android:popupCharacters="ḣ"/>
-        <Key android:codes="106" android:keyLabel="j"/>
+        <Key android:codes="106" android:keyLabel="j"
+             android:popupKeyboard="@xml/popup_keyboard"
+             android:popupCharacters="ĵ"/>
         <Key android:codes="107" android:keyLabel="k"
              android:popupKeyboard="@xml/popup_keyboard"
              android:popupCharacters="ḱ"/>
         <Key android:codes="108" android:keyLabel="l"
              android:popupKeyboard="@xml/popup_keyboard"
              android:popupCharacters="ĺ"/>
-        <Key android:codes="351" android:keyLabel="ş"/>
+        <Key android:codes="351" android:keyLabel="ş"
+             android:popupKeyboard="@xml/popup_keyboard"
+             android:popupCharacters="ṩ"/>
         <Key android:codes="105" android:keyLabel="i"
              android:popupKeyboard="@xml/popup_keyboard"
              android:popupCharacters="İ"
@@ -86,7 +92,9 @@
         <Key android:codes="110" android:keyLabel="n"/>
         <Key android:codes="109" android:keyLabel="m"/>
         <Key android:codes="246" android:keyLabel="ö"/>
-        <Key android:codes="231" android:keyLabel="ç"/>
+        <Key android:codes="231" android:keyLabel="ç"
+             android:popupKeyboard="@xml/popup_keyboard"
+             android:popupCharacters="ḉ"/>
         <Key android:codes="-5" android:keyIcon="@mipmap/ic_clear"
              android:keyWidth="15%p"
              android:isRepeatable="true"
