@@ -14,6 +14,7 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     private Keyboard qwertyKeyboard;
     private Keyboard symbolsKeyboard;
     private boolean isCaps = false;
+    private boolean isAfterDot = false;
 
     @Override
     public View onCreateInputView() {
@@ -72,6 +73,14 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                         code = Character.toUpperCase(code);
                     }
                     inputConnection.commitText(String.valueOf(code), 1);
+                    if (isAfterDot) {
+                        unshiftKeyboard();
+                    }
+                    if (code == 46) {
+                        isAfterDot = true;
+                        inputConnection.commitText(" ", 1);
+                        shiftKeyboard();
+                    }
             }
         }
     }
@@ -116,6 +125,20 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                 break;
             default:
                 audioManager.playSoundEffect(AudioManager.FX_KEYPRESS_STANDARD);
+        }
+    }
+
+    private void shiftKeyboard() {
+        qwertyKeyboard.setShifted(true);
+        keyboardView.invalidateAllKeys();
+        isCaps = true;
+    }
+
+    private void unshiftKeyboard() {
+        if (isCaps) {
+            qwertyKeyboard.setShifted(false);
+            keyboardView.invalidateAllKeys();
+            isCaps = false;
         }
     }
 }
