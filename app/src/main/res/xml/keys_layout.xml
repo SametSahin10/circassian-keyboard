@@ -109,7 +109,7 @@
         <Key android:codes="32" android:keyLabel="SPACE"
              android:keyWidth="50%p"
              android:isRepeatable="true"/>
-        <Key android:codes="39" android:keyLabel="'"/>
+        <Key android:codes="96" android:keyLabel="`"/>
         <Key android:codes="-4" android:keyBackground="@color/colorPrimary"
              android:keyIcon="@mipmap/ic_success"
              android:keyWidth="15%p"
