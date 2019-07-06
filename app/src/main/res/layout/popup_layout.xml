@@ -3,7 +3,7 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/keyboard_background_color">
+    android:background="@color/keyboard_background_color_green_theme">
 
     <android.inputmethodservice.KeyboardView
         android:id="@android:id/keyboardView"
@@ -13,7 +13,7 @@
         android:keyPreviewLayout="@layout/key_preview"
         android:keyTextColor="@android:color/white"
         android:keyBackground="@drawable/key_background"
-        android:background="@color/keyboard_background_color">
+        android:background="@color/keyboard_background_color_green_theme">
     </android.inputmethodservice.KeyboardView>
 
     <ImageButton

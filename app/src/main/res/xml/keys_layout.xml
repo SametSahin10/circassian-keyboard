@@ -104,7 +104,7 @@
         <Key android:codes="-2" android:keyWidth="15%p"
              android:keyIcon="@mipmap/ic_symbols"
              android:keyEdgeFlags="left"/>
-        <Key android:codes="44" android:keyLabel="," android:keyWidth="10%p" />
+        <Key android:codes="44" android:keyLabel="," android:keyWidth="10%p"/>
         <Key android:codes="46" android:keyLabel="."/>
         <Key android:codes="32" android:keyLabel="SPACE"
              android:keyWidth="50%p"

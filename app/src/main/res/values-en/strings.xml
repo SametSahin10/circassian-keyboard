@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Adıǵe Latin Keyboard</string>
     <string name="btn_settings">Go to Settings</string>
+    <string name="btn_themes">Themes</string>
 </resources>

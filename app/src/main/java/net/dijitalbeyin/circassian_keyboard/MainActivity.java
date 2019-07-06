@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-
     Button btn_goToSettings;
+    Button btn_goToThemes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +20,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivityForResult(new Intent(Settings.ACTION_SETTINGS), 0);
+            }
+        });
+
+        btn_goToThemes = findViewById(R.id.btn_goToThemes);
+        btn_goToThemes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ThemesActivity.class);
+                startActivity(intent);
             }
         });
     }

@@ -4,5 +4,5 @@
     android:keyHeight="55dp"
     android:keyTextColor="@color/colorAccent"
     android:keyBackground="@drawable/key_background"
-    android:background="@color/keyboard_background_color">
+    android:background="@color/keyboard_background_color_green_theme">
 </Keyboard>

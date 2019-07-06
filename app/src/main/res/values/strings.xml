@@ -2,4 +2,6 @@
     <string name="app_name">Adıǵe Latin Keyboard</string>
     <string name="im_label" translatable="false">Circassian</string>
     <string name="btn_settings">Go to Settings</string>
+    <string name="btn_themes">Themes</string>
+    <string name="select_theme_btn_text">Select as theme</string>
 </resources>
