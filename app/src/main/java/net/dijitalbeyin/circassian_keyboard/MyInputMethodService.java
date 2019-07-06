@@ -13,6 +13,7 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     private KeyboardView keyboardView;
     private Keyboard qwertyKeyboard;
     private Keyboard symbolsKeyboard;
+    private boolean isJustStarted = true;
     private boolean isCaps = false;
     private boolean isAfterDot = false;
 
@@ -23,6 +24,7 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
         symbolsKeyboard = new Keyboard(this, R.xml.symbols);
         keyboardView.setKeyboard(qwertyKeyboard);
         keyboardView.setOnKeyboardActionListener(this);
+        shiftKeyboard();
         return keyboardView;
     }
 
@@ -73,6 +75,10 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                         code = Character.toUpperCase(code);
                     }
                     inputConnection.commitText(String.valueOf(code), 1);
+                    if (isJustStarted) {
+                        unshiftKeyboard();
+                        isJustStarted = false;
+                    }
                     if (isAfterDot) {
                         unshiftKeyboard();
                     }
