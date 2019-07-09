@@ -23,7 +23,7 @@
         android:padding="15dp"
         android:background="@drawable/btn_settings_rounded"
         android:textAllCaps="false"
-        android:textColor="#DCE6EE"
+        android:textColor="@android:color/white"
         android:textSize="22sp"
         android:text="@string/btn_settings"/>
 
@@ -35,9 +35,9 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="10dp"
         android:padding="15dp"
-        android:background="@drawable/btn_settings_rounded"
+        android:background="@drawable/btn_themes_rounded"
         android:textAllCaps="false"
-        android:textColor="#DCE6EE"
+        android:textColor="@android:color/white"
         android:textSize="22sp"
         android:text="@string/btn_themes"/>
 </RelativeLayout>

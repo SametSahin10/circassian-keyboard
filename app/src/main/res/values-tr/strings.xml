@@ -3,4 +3,5 @@
     <string name="app_name">Adıǵe Latin Klavye</string>
     <string name="btn_settings">Ayarlara Git</string>
     <string name="btn_themes">Temalar</string>
+    <string name="select_theme_btn_text">Kullan</string>
 </resources>

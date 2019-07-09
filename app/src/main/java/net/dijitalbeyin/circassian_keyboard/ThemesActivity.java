@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -32,9 +33,9 @@ public class ThemesActivity extends AppCompatActivity implements ThemeAdapter.On
 
         int greenThemeImageResourceId = getResources().getIdentifier("green_theme_preview", "drawable", this.getPackageName());
         Theme greenTheme = new Theme("Green", greenThemeImageResourceId, false);
-        int lightThemeImageResourceId = getResources().getIdentifier("green_theme_preview", "drawable", this.getPackageName());
+        int lightThemeImageResourceId = getResources().getIdentifier("light_theme_preview", "drawable", this.getPackageName());
         Theme lightTheme = new Theme("Light", lightThemeImageResourceId, false);
-        int darkThemeImageResourceId = getResources().getIdentifier("green_theme_preview", "drawable", this.getPackageName());
+        int darkThemeImageResourceId = getResources().getIdentifier("dark_theme_preview", "drawable", this.getPackageName());
         Theme darkTheme = new Theme("Dark", darkThemeImageResourceId, false);
 
         if (selectedThemeName.equals("Green")) {
@@ -54,8 +55,11 @@ public class ThemesActivity extends AppCompatActivity implements ThemeAdapter.On
         themeAdapter = new ThemeAdapter(themes, this);
         rw_themes.setAdapter(themeAdapter);
         layoutManager = new LinearLayoutManager(this);
-        ((LinearLayoutManager) layoutManager).setOrientation(LinearLayoutManager.HORIZONTAL);
+        ((LinearLayoutManager) layoutManager).setOrientation(LinearLayoutManager.VERTICAL);
         rw_themes.setLayoutManager(layoutManager);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rw_themes.getContext(),
+                                            ((LinearLayoutManager) layoutManager).getOrientation());
+        rw_themes.addItemDecoration(dividerItemDecoration);
     }
 
     @Override
