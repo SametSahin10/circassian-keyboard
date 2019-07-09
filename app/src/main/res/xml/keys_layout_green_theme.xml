@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:keyWidth="10%p"
+    android:horizontalGap="7px"
+    android:verticalGap="5px"
+    android:keyHeight="55dp"
+    android:keyTextColor="@color/colorAccent"
+    android:keyBackground="@drawable/key_background_green_theme">
+    <Row>
+        <Key android:codes="49" android:keyLabel="1" android:keyEdgeFlags="left"/>
+        <Key android:codes="50" android:keyLabel="2"/>
+        <Key android:codes="51" android:keyLabel="3"/>
+        <Key android:codes="52" android:keyLabel="4"/>
+        <Key android:codes="53" android:keyLabel="5"/>
+        <Key android:codes="54" android:keyLabel="6"/>
+        <Key android:codes="55" android:keyLabel="7"/>
+        <Key android:codes="56" android:keyLabel="8"/>
+        <Key android:codes="57" android:keyLabel="9"/>
+        <Key android:codes="48" android:keyLabel="0"/>
+    </Row>
+    <Row>
+        <Key android:codes="113" android:keyLabel="q" android:keyEdgeFlags="left"/>
+        <Key android:codes="119" android:keyLabel="w"/>
+        <Key android:codes="101" android:keyLabel="e"
+             android:popupKeyboard="@xml/popup_keyboard_green_theme"
+             android:popupCharacters="é"/>
+        <Key android:codes="114" android:keyLabel="r"/>
+        <Key android:codes="116" android:keyLabel="t"
+             android:popupKeyboard="@xml/popup_keyboard_green_theme"
+             android:popupCharacters="ṫ"/>
+        <Key android:codes="121" android:keyLabel="y"/>
+        <Key android:codes="117" android:keyLabel="u"
+             android:popupKeyboard="@xml/popup_keyboard_green_theme"/>
+        <Key android:codes="305" android:keyLabel="ı"/>
+        <Key android:codes="111" android:keyLabel="o"
+             android:popupKeyboard="@xml/popup_keyboard_green_theme"/>
+        <Key android:codes="112" android:keyLabel="p"
+             android:popupKeyboard="@xml/popup_keyboard_green_theme"
+             android:popupCharacters="ṕ"/>
+        <Key android:codes="287" android:keyLabel="ğ"/>
+        <Key android:codes="252" android:keyLabel="ü"
+             android:keyEdgeFlags="right"/>
+    </Row>
+    <Row>
+        <Key android:codes="97" android:keyLabel="a"
+             android:keyEdgeFlags="left"
+             android:popupKeyboard="@xml/popup_keyboard_green_theme"
+             android:popupCharacters="á"/>
+        <Key android:codes="115" android:keyLabel="s"
+             android:popupKeyboard="@xml/popup_keyboard_green_theme"
+             android:popupCharacters="šś"/>
+        <Key android:codes="100" android:keyLabel="d"/>
+        <Key android:codes="102" android:keyLabel="f"
+             android:popupKeyboard="@xml/popup_keyboard_green_theme"
+             android:popupCharacters="ḟ"/>
+        <Key android:codes="103" android:keyLabel="g"
+             android:popupKeyboard="@xml/popup_keyboard_green_theme"
+             android:popupCharacters="ǵ"/>
+        <Key android:codes="104" android:keyLabel="h"
+             android:popupKeyboard="@xml/popup_keyboard_green_theme"
+             android:popupCharacters="ḣ"/>
+        <Key android:codes="106" android:keyLabel="j"
+             android:popupKeyboard="@xml/popup_keyboard_green_theme"
+             android:popupCharacters="ĵ"/>
+        <Key android:codes="107" android:keyLabel="k"
+             android:popupKeyboard="@xml/popup_keyboard_green_theme"
+             android:popupCharacters="ḱ"/>
+        <Key android:codes="108" android:keyLabel="l"
+             android:popupKeyboard="@xml/popup_keyboard_green_theme"
+             android:popupCharacters="ĺ"/>
+        <Key android:codes="351" android:keyLabel="ş"
+             android:popupKeyboard="@xml/popup_keyboard_green_theme"
+             android:popupCharacters="ṩ"/>
+        <Key android:codes="105" android:keyLabel="i"
+             android:popupKeyboard="@xml/popup_keyboard_green_theme"
+             android:popupCharacters="İ"
+             android:keyEdgeFlags="right"/>
+    </Row>
+    <Row>
+        <Key android:codes="-1" android:keyEdgeFlags="left"
+             android:keyIcon="@drawable/ic_cap_letters"
+             android:keyWidth="15%p"/>
+        <Key android:codes="122" android:keyLabel="z"
+             android:popupKeyboard="@xml/popup_keyboard_green_theme"
+             android:popupCharacters="ź"/>
+        <Key android:codes="120" android:keyLabel="x"/>
+        <Key android:codes="99" android:keyLabel="c"
+             android:popupKeyboard="@xml/popup_keyboard_green_theme"
+             android:popupCharacters="ć"/>
+        <Key android:codes="118" android:keyLabel="v"/>
+        <Key android:codes="98" android:keyLabel="b"/>
+        <Key android:codes="110" android:keyLabel="n"/>
+        <Key android:codes="109" android:keyLabel="m"/>
+        <Key android:codes="246" android:keyLabel="ö"/>
+        <Key android:codes="231" android:keyLabel="ç"
+             android:popupKeyboard="@xml/popup_keyboard_green_theme"
+             android:popupCharacters="ḉ"/>
+        <Key android:codes="-5" android:keyIcon="@drawable/ic_clear"
+             android:keyWidth="15%p"
+             android:isRepeatable="true"
+             android:keyEdgeFlags="right"/>
+    </Row>
+    <Row android:rowEdgeFlags="bottom">
+        <Key android:codes="-2" android:keyWidth="15%p"
+             android:keyIcon="@drawable/ic_symbols"
+             android:keyEdgeFlags="left"/>
+        <Key android:codes="44" android:keyLabel="," android:keyWidth="10%p"/>
+        <Key android:codes="46" android:keyLabel="."/>
+        <Key android:codes="32" android:keyLabel="SPACE"
+             android:keyWidth="50%p"
+             android:isRepeatable="true"/>
+        <Key android:codes="39" android:keyLabel="'"/>
+        <Key android:codes="-4" android:keyBackground="@color/colorPrimary"
+             android:keyIcon="@drawable/ic_success"
+             android:keyWidth="15%p"
+             android:keyEdgeFlags="right"/>
+    </Row>
+</Keyboard>

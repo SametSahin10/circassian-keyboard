@@ -1,31 +1,43 @@
 package net.dijitalbeyin.circassian_keyboard;
 
+import android.content.SharedPreferences;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.media.AudioManager;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 
 public class MyInputMethodService extends InputMethodService implements KeyboardView.OnKeyboardActionListener {
+    private final static String LOG_TAG = MyInputMethodService.class.getSimpleName();
+
     private KeyboardView keyboardView;
     private Keyboard qwertyKeyboard;
     private Keyboard symbolsKeyboard;
+    private SharedPreferences sharedPreferences;
     private boolean isJustStarted = true;
     private boolean isCaps = false;
     private boolean isAfterDot = false;
 
     @Override
     public View onCreateInputView() {
-        keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view, null);
-        qwertyKeyboard = new Keyboard(this, R.xml.keys_layout);
-        symbolsKeyboard = new Keyboard(this, R.xml.symbols);
-        keyboardView.setKeyboard(qwertyKeyboard);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String selectedThemeName = sharedPreferences.getString("selectedThemeName", "Green");
+        setKeyboardTheme(selectedThemeName);
         keyboardView.setOnKeyboardActionListener(this);
         shiftKeyboard();
         return keyboardView;
+    }
+
+    @Override
+    public void onStartInputView(EditorInfo info, boolean restarting) {
+        super.onStartInputView(info, restarting);
+        setInputView(onCreateInputView());
     }
 
     @Override
@@ -145,6 +157,31 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
             qwertyKeyboard.setShifted(false);
             keyboardView.invalidateAllKeys();
             isCaps = false;
+        }
+    }
+
+    private void setKeyboardTheme(String selectedThemeName) {
+        if (selectedThemeName.equals("Green")) {
+            keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view_green_theme, null);
+            qwertyKeyboard = new Keyboard(this, R.xml.keys_layout_green_theme);
+            symbolsKeyboard = new Keyboard(this, R.xml.symbols_green_theme);
+            keyboardView.setKeyboard(qwertyKeyboard);
+        } else if (selectedThemeName.equals("Light")) {
+            keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view_light_theme, null);
+            qwertyKeyboard = new Keyboard(this, R.xml.keys_layout_light_theme);
+            symbolsKeyboard = new Keyboard(this, R.xml.symbols_light_theme);
+            keyboardView.setKeyboard(qwertyKeyboard);
+        } else if (selectedThemeName.equals("Dark")) {
+            keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view_dark_theme, null);
+            qwertyKeyboard = new Keyboard(this, R.xml.keys_layout_dark_theme);
+            symbolsKeyboard = new Keyboard(this, R.xml.symbols_dark_theme);
+            keyboardView.setKeyboard(qwertyKeyboard);
+        } else {
+            keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view_green_theme, null);
+            qwertyKeyboard = new Keyboard(this, R.xml.keys_layout_green_theme);
+            symbolsKeyboard = new Keyboard(this, R.xml.symbols_green_theme);
+            keyboardView.setKeyboard(qwertyKeyboard);
+            Log.e("TAG", "Unknown theme selection: " + selectedThemeName);
         }
     }
 }

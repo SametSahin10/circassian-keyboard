@@ -4,7 +4,16 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="keyboard_background_color_green_theme">#00B159</color>
-    <color name="key_text_color_green_theme">@android:color/black</color>
-    <color name="keyboard_divider">#FFFFFF</color>
+    <color name="keyboard_background_color_light_theme">#FCFCFC</color>
+    <color name="keyboard_background_color_dark_theme">#232323</color>
+    <color name="key_background_color_green_theme">#00B159</color>
+    <color name="key_background_color_light_theme">#FCFCFC</color>
+    <color name="key_background_color_dark_theme">#232323</color>
+    <color name="key_text_color_green_theme">@android:color/white</color>
+    <color name="key_text_color_light_theme">@android:color/black</color>
+    <color name="key_text_color_dark_theme">#CCF9F9F9</color>
+    <color name="keyboard_divider_green_theme">#FFFFFF</color>
+    <color name="keyboard_divider_light_theme">@android:color/black</color>
+    <color name="keyboard_divider_dark_theme">@android:color/white</color>
     <color name="keyboard_pressed">@android:color/holo_blue_dark</color>
 </resources>

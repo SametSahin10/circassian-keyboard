@@ -6,19 +6,6 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:textViewStyle">@style/KeyTextGreenTheme</item>
     </style>
-
-    <style name="GreenTheme" parent="AppTheme">
-
-    </style>
-
-    <style name="KeyTextGreenTheme" parent="TextAppearance.AppCompat.Medium">
-        <item name="android:textColor">@color/key_text_color_green_theme</item>
-        <item name="android:textSize">30sp</item>
-        <item name="android:background">@color/keyboard_background_color_green_theme</item>
-    </style>
-
-
 
 </resources>

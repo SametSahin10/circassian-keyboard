@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/keyboard_background_color_green_theme">
+
+    <android.inputmethodservice.KeyboardView
+        android:id="@android:id/keyboardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:keyPreviewLayout="@layout/key_preview_green_theme"
+        android:keyTextColor="@android:color/white"
+        android:keyBackground="@drawable/key_background_green_theme"
+        android:background="@color/keyboard_background_color_green_theme"
+        android:shadowColor="@android:color/transparent">
+    </android.inputmethodservice.KeyboardView>
+
+    <ImageButton
+        android:id="@android:id/closeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_close"
+        android:layout_gravity="center"
+        android:focusable="true"
+        android:clickable="true"/>
+</LinearLayout>

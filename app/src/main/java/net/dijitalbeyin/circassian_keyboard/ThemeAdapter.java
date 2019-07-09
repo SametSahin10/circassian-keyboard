@@ -11,22 +11,11 @@ import android.widget.ImageView;
 
 public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ThemeHolder> {
     private Theme[] themes;
+    private OnThemeListener onThemeListener;
 
-    public static class ThemeHolder extends RecyclerView.ViewHolder {
-        public ImageView iv_themePreviewImage;
-        public Button btn_selectTheme;
-        public ImageView iv_themeStatus;
-
-        public ThemeHolder(@NonNull View itemView) {
-            super(itemView);
-            iv_themePreviewImage = itemView.findViewById(R.id.iv_themePreviewImage);
-            btn_selectTheme = itemView.findViewById(R.id.btn_select_theme);
-            iv_themeStatus = itemView.findViewById(R.id.iv_themeStatus);
-        }
-    }
-
-    public ThemeAdapter(Theme[] themes) {
+    public ThemeAdapter(Theme[] themes, OnThemeListener onThemeListener) {
         this.themes = themes;
+        this.onThemeListener = onThemeListener;
     }
 
     @NonNull
@@ -34,7 +23,7 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ThemeHolder>
     public ThemeHolder onCreateViewHolder(@NonNull ViewGroup parent, int position) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View itemView = layoutInflater.inflate(R.layout.item_theme, parent, false);
-        ThemeHolder themeHolder = new ThemeHolder(itemView);
+        ThemeHolder themeHolder = new ThemeHolder(itemView, onThemeListener);
         return themeHolder;
     }
 
@@ -45,11 +34,38 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ThemeHolder>
         Log.d("TAG", "" + currentTheme.getThemeImageResourceId());
         if (currentTheme.isActive()) {
             themeHolder.iv_themeStatus.setVisibility(View.VISIBLE);
+        } else {
+            themeHolder.iv_themeStatus.setVisibility(View.INVISIBLE);
         }
     }
 
     @Override
     public int getItemCount() {
         return themes.length;
+    }
+
+    public static class ThemeHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        public ImageView iv_themePreviewImage;
+        public Button btn_selectTheme;
+        public ImageView iv_themeStatus;
+        private OnThemeListener onThemeListener;
+
+        public ThemeHolder(@NonNull View itemView, OnThemeListener onThemeListener) {
+            super(itemView);
+            this.onThemeListener = onThemeListener;
+            iv_themePreviewImage = itemView.findViewById(R.id.iv_themePreviewImage);
+            btn_selectTheme = itemView.findViewById(R.id.btn_select_theme);
+            iv_themeStatus = itemView.findViewById(R.id.iv_themeStatus);
+            btn_selectTheme.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            onThemeListener.onThemeClick(getAdapterPosition());
+        }
+    }
+
+    public interface OnThemeListener {
+        void onThemeClick(int position);
     }
 }
