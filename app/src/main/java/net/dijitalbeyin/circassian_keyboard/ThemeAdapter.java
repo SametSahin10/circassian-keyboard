@@ -24,6 +24,7 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ThemeHolder>
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View itemView = layoutInflater.inflate(R.layout.item_theme, parent, false);
         ThemeHolder themeHolder = new ThemeHolder(itemView, onThemeListener);
+        Log.d("TAG", "onCreateViewHolder: ");
         return themeHolder;
     }
 
@@ -37,6 +38,7 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ThemeHolder>
         } else {
             themeHolder.iv_themeStatus.setVisibility(View.INVISIBLE);
         }
+        Log.d("TAG", "Theme name:" + currentTheme.getThemeName() + currentTheme.isActive());
     }
 
     @Override

@@ -38,12 +38,17 @@ public class ThemesActivity extends AppCompatActivity implements ThemeAdapter.On
         int darkThemeImageResourceId = getResources().getIdentifier("dark_theme_preview", "drawable", this.getPackageName());
         Theme darkTheme = new Theme("Dark", darkThemeImageResourceId, false);
 
+        Log.d("TAG", "Selected theme name: " + selectedThemeName);
+
         if (selectedThemeName.equals("Green")) {
             greenTheme.setActive(true);
+            Log.d("TAG", "Active theme: " + selectedThemeName);
         } else if (selectedThemeName.equals("Light")) {
             lightTheme.setActive(true);
+            Log.d("TAG", "Active theme: " + selectedThemeName);
         } else if (selectedThemeName.equals("Dark")) {
-            lightTheme.setActive(true);
+            darkTheme.setActive(true);
+            Log.d("TAG", "Active theme: " + selectedThemeName);
         } else {
             Log.e(LOG_TAG, "Unknown theme name");
         }
