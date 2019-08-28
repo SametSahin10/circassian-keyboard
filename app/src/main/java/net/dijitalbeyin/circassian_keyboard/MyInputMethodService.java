@@ -3,6 +3,7 @@ package net.dijitalbeyin.circassian_keyboard;
 import android.content.SharedPreferences;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
+import android.inputmethodservice.Keyboard.Key;
 import android.inputmethodservice.KeyboardView;
 import android.media.AudioManager;
 import android.preference.PreferenceManager;
@@ -12,6 +13,8 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
+
+import java.util.List;
 
 public class MyInputMethodService extends InputMethodService implements KeyboardView.OnKeyboardActionListener {
     private final static String LOG_TAG = MyInputMethodService.class.getSimpleName();
@@ -26,6 +29,7 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
 
     @Override
     public View onCreateInputView() {
+        Log.d("TAG", "onCreateInputView");
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String selectedThemeName = sharedPreferences.getString("selectedThemeName", "Green");
         setKeyboardTheme(selectedThemeName);
@@ -37,6 +41,7 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     @Override
     public void onStartInputView(EditorInfo info, boolean restarting) {
         super.onStartInputView(info, restarting);
+        Log.d("TAG", "onStartInputView");
         setInputView(onCreateInputView());
     }
 
@@ -74,9 +79,11 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                     }
                     break;
                 case Keyboard.KEYCODE_SHIFT:
-                    isCaps = !isCaps;
-                    qwertyKeyboard.setShifted(isCaps);
-                    keyboardView.invalidateAllKeys();
+                    if (!isCaps) {
+                        shiftKeyboard();
+                    } else {
+                        unshiftKeyboard();
+                    }
                     break;
                 case Keyboard.KEYCODE_DONE:
                     inputConnection.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
@@ -84,23 +91,33 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                 default:
                     char code = (char) primaryCode;
                     if (Character.isLetter(code) && isCaps) {
-                        code = Character.toUpperCase(code);
+                        if (code == 'i') {
+                            code = 'İ';
+                        } else {
+                            code = Character.toUpperCase(code);
+                        }
                     }
                     inputConnection.commitText(String.valueOf(code), 1);
                     if (isJustStartedTyping) {
                         Log.d("TAG", "justStartedTyping");
-                        unshiftKeyboard();
+                        if (isCaps) {
+                            unshiftKeyboard();
+                        }
                         isJustStartedTyping = false;
                     }
                     if (isAfterDot) {
                         Log.d("TAG", "isAfterDot");
-                        unshiftKeyboard();
+                        if (isCaps) {
+                            unshiftKeyboard();
+                        }
                         isAfterDot = false;
                     }
                     if (code == 46) {
                         isAfterDot = true;
                         inputConnection.commitText(" ", 1);
-                        shiftKeyboard();
+                        if (!isCaps) {
+                            shiftKeyboard();
+                        }
                     }
                     break;
             }
@@ -151,16 +168,32 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     }
 
     private void shiftKeyboard() {
+        Log.d("TAG", "Shifting keyboard");
         qwertyKeyboard.setShifted(true);
         keyboardView.invalidateAllKeys();
         isCaps = true;
+        List<Keyboard.Key> keys = qwertyKeyboard.getKeys();
+        for (Key key: keys) {
+            if (key.label != null) {
+                if (key.label.equals("i")) {
+                    key.label = "İ";
+                }
+            }
+        }
     }
 
     private void unshiftKeyboard() {
-        if (isCaps) {
-            qwertyKeyboard.setShifted(false);
-            keyboardView.invalidateAllKeys();
-            isCaps = false;
+        Log.d("TAG", "Unshifting keyboard");
+        qwertyKeyboard.setShifted(false);
+        keyboardView.invalidateAllKeys();
+        isCaps = false;
+        List<Keyboard.Key> keys = qwertyKeyboard.getKeys();
+        for (Key key: keys) {
+            if (key.label != null) {
+                if (key.label.equals("İ")) {
+                    key.label = "i";
+                }
+            }
         }
     }
 
