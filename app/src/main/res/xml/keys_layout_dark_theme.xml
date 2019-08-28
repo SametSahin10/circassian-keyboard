@@ -96,6 +96,7 @@
             android:popupKeyboard="@xml/popup_keyboard_dark_theme"
             android:popupCharacters="ḉ"/>
         <Key android:codes="-5" android:keyIcon="@drawable/ic_clear"
+
             android:keyWidth="15%p"
             android:isRepeatable="true"
             android:keyEdgeFlags="right"/>

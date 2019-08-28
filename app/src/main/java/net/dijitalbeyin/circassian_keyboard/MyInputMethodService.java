@@ -20,7 +20,7 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     private Keyboard qwertyKeyboard;
     private Keyboard symbolsKeyboard;
     private SharedPreferences sharedPreferences;
-    private boolean isJustStarted = true;
+    private boolean isJustStartedTyping = true;
     private boolean isCaps = false;
     private boolean isAfterDot = false;
 
@@ -87,18 +87,22 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                         code = Character.toUpperCase(code);
                     }
                     inputConnection.commitText(String.valueOf(code), 1);
-                    if (isJustStarted) {
+                    if (isJustStartedTyping) {
+                        Log.d("TAG", "justStartedTyping");
                         unshiftKeyboard();
-                        isJustStarted = false;
+                        isJustStartedTyping = false;
                     }
                     if (isAfterDot) {
+                        Log.d("TAG", "isAfterDot");
                         unshiftKeyboard();
+                        isAfterDot = false;
                     }
                     if (code == 46) {
                         isAfterDot = true;
                         inputConnection.commitText(" ", 1);
                         shiftKeyboard();
                     }
+                    break;
             }
         }
     }
