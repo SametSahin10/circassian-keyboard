@@ -15,11 +15,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btn_goToSettings = findViewById(R.id.btn_goToSettings);
+        btn_goToSettings = findViewById(R.id.btn_enableKeyboard);
         btn_goToSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivityForResult(new Intent(Settings.ACTION_SETTINGS), 0);
+                startActivityForResult(new Intent(Settings.ACTION_INPUT_METHOD_SETTINGS), 0);
             }
         });
 
